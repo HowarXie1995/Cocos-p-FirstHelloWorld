@@ -23,7 +23,8 @@
  ****************************************************************************/
 
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
+
+#include "HelloWorldLayer.h"
 
 // #define USE_AUDIO_ENGINE 1
 // #define USE_SIMPLE_AUDIO_ENGINE 1
@@ -42,7 +43,7 @@ using namespace CocosDenshion;
 
 USING_NS_CC;
 
-static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320);
+static cocos2d::Size designResolutionSize = cocos2d::Size(1028, 720);
 static cocos2d::Size smallResolutionSize = cocos2d::Size(480, 320);
 static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);
 static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
@@ -119,6 +120,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
 	//新建一个场景
 	auto scene = Scene::create();
+	//调用create方法
+	HelloWorldLayer * layer = HelloWorldLayer::create();
+	//把layer添加到场景上来
+	scene->addChild(layer);
 
     // run
     director->runWithScene(scene);
